@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Pegawai extends Model
 {
@@ -10,13 +11,13 @@ class Pegawai extends Model
     protected $guarded = [];
 
     public static $types = [
-        'staff'     => 'staff', 
+        'staff'     => 'staff',
         'manager'   => 'manager',
     ];
 
-    public function attandances()
+    public function attandances(): HasMany
     {
-        return $this->belongsTo(Absensi::class, 'pegawai_id');
+        return $this->hasMany(Absensi::class, 'pegawai_id');
     }
 
     public function cuti()
@@ -27,5 +28,17 @@ class Pegawai extends Model
     public function darurat()
     {
         return $this->belongsTo('App\Darurat', 'nip', 'nip');
+    }
+
+
+    public function present()
+    {
+        return $this->attandances()
+            ->where('status', 'present');
+    }
+    public function abesens()
+    {
+        return $this->attandances()
+            ->where('status', 'absen');
     }
 }

@@ -23,5 +23,17 @@ class AbsensiController extends Controller
     public function rekap()
     {
         
+        $rekap = collect([]);
+
+        $pegawai = Pegawai::all();
+
+        $pegawai->each(function($pegawai) use ($rekap ){
+            $rekap->push([
+                'nama'      => $pegawai->nama_lengkap,
+                'present'   => $pegawai->present()->count(),
+                'absens'    => $pegawai->abesens()->count(),
+            ]);
+        });
+        return $rekap;
     }
 }

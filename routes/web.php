@@ -1,5 +1,9 @@
 <?php
 
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +19,8 @@
 //     return view('welcome');
 // });
 
+
+
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -28,3 +34,5 @@ Route::get('/cuti/belum/{id}', 'CutiController@belum')->name('cuti.belum');
 Route::get('/cuti/tolak/{id}', 'CutiController@tolak')->name('cuti.tolak');
 Route::get('/rekap', 'AbsensiController@rekap')->name('absen.rekap');
 Route::get('/darurat', 'DaruratController@index')->name('darurat.index');
+
+

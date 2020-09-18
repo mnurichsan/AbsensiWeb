@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Absensi extends Model
 {
@@ -10,8 +11,8 @@ class Absensi extends Model
     protected $guarded = [];
     protected $dates = ['tgl_absen'];
 
-    public function pegawai()
+    public function pegawai() : BelongsTo
     {
-        return $this->hasMany('App\Pegawai', 'nip', 'nip');
+        return $this->belongsTo(Pegawai::class , 'pegawai_id');
     }
 }

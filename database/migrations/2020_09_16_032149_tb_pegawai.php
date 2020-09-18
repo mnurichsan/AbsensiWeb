@@ -20,8 +20,6 @@ class TbPegawai extends Migration
             $table->string('nama_lengkap');
             $table->string('jabatan');
             $table->string('divisi');
-            $table->integer('lokasi_kerja');
-            $table->string('jenis_jabatan');
             $table->string('type');
             $table->string('jenis_kelamin');
             $table->timestamps();
