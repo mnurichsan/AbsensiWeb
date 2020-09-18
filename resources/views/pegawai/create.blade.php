@@ -11,9 +11,9 @@
                 <form method="POST" action="{{route('pegawai.store')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                        <label>NIP</label>
-                        <input type="text" name="nip" class="form-control form-control-user rounded-pill @error('nip') is-invalid @enderror" autocomplete="off">
-                        @error('nip')
+                        <label>Pegawai</label>
+                        <input type="text" name="pegawai_id" class="form-control form-control-user rounded-pill @error('pegawai_id') is-invalid @enderror" autocomplete="off">
+                        @error('pegawai_id')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

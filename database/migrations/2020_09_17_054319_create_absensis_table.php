@@ -15,7 +15,7 @@ class CreateAbsensisTable extends Migration
     {
         Schema::create('tb_absensi', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('nip');
+            $table->unsignedBigInteger('pegawai_id');
             $table->dateTime('tgl_absen')->nullable();
             $table->string('status');
             $table->timestamps();

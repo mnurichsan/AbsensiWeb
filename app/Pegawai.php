@@ -9,9 +9,9 @@ class Pegawai extends Model
     protected $table = "tb_pegawai";
     protected $guarded = [];
 
-    public function absen()
+    public function attandances()
     {
-        return $this->belongsTo('App\Absensi', 'nip', 'nip');
+        return $this->belongsTo(Absensi::class, 'pegawai_id');
     }
 
     public function cuti()
