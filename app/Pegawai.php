@@ -9,6 +9,11 @@ class Pegawai extends Model
     protected $table = "tb_pegawai";
     protected $guarded = [];
 
+    public static $types = [
+        'staff'     => 'staff', 
+        'manager'   => 'manager',
+    ];
+
     public function attandances()
     {
         return $this->belongsTo(Absensi::class, 'pegawai_id');

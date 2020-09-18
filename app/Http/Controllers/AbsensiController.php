@@ -22,10 +22,6 @@ class AbsensiController extends Controller
 
     public function rekap()
     {
-        $nip = Pegawai::select('nip')->distinct()->get();
-        $rekap = Pegawai::with(['absen' => function ($query) {
-            $query->where('status', 'hadir');
-        }])->get();
-        dd($rekap);
+        
     }
 }
