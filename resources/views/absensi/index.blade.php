@@ -38,8 +38,8 @@
                             <tr>
                                 <td>{{$key + 1}}</td>
                                 <td>{{$absen->nip}}</td>
-                                <td>{{$absen->pegawai[0]['nama_lengkap']}}</td>
-                                <td>{{$absen->pegawai[0]['jabatan']}}</td>
+                                <td>{{$absen->pegawai['nama_lengkap']}}</td>
+                                <td>{{$absen->pegawai['jabatan']}}</td>
                                 <td>{{$absen->tgl_absen->format('d.m.Y')}}</td>
                                 <td>{{$absen->tgl_absen->format('H:i:s')}}</td>
                                 <td>{{$absen->status}}</td>

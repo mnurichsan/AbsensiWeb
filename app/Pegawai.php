@@ -11,7 +11,7 @@ class Pegawai extends Model
 
     public function absen()
     {
-        return $this->belongsTo('App\Absensi', 'nip', 'nip');
+        return $this->hasMany('App\Absensi', 'nip', 'nip');
     }
 
     public function cuti()
@@ -22,5 +22,17 @@ class Pegawai extends Model
     public function darurat()
     {
         return $this->belongsTo('App\Darurat', 'nip', 'nip');
+    }
+
+    public function hadir()
+    {
+        return $this->absen()
+            ->where('status', 'hadir');
+    }
+
+    public function sakit()
+    {
+        return $this->absen()
+            ->where('status', 'hadir');
     }
 }
