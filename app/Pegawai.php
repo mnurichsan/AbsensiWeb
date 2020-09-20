@@ -32,7 +32,18 @@ class Pegawai extends Model
 
     public function sakit()
     {
-        return $this->absen()
-            ->where('status', 'hadir');
+        return $this->darurat()
+            ->where('informasi', 'Sakit');
+    }
+
+    public function dataCuti($nip)
+    {
+        return $this->cuti()
+            ->where('nip', $nip);
+    }
+
+    public function izin()
+    {
+        return $this->darurat()->where('informasi', 'Izin');
     }
 }

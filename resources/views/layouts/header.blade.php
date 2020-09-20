@@ -5,6 +5,9 @@
           <i class="fa fa-bars"></i>
       </button>
 
+      <div>
+          <h5>Tanggal Hari Ini : <span>{{date('d-m-Y')}}</span> </h5>
+      </div>
 
       <!-- Topbar Navbar -->
       <ul class="navbar-nav ml-auto">

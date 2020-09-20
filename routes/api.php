@@ -22,3 +22,7 @@ Route::post('/absen', 'API\AbsensiControllerApi@store');
 Route::get('/atasan', 'API\PegawaiControllerApi@atasan');
 Route::post('/cuti', 'API\CutiControllerApi@store');
 Route::post('/darurat', 'API\DaruratControllerApi@store');
+Route::post('/pulang', 'API\AbsensiControllerApi@pulang');
+Route::get('/data/{nip}', 'API\DataControllerApi@dataAccount');
+Route::get('/data/cuti/{nip}', 'API\DataControllerApi@accountCuti');
+Route::get('/data/darurat/{nip}', 'API\DataControllerApi@accountDarurat');

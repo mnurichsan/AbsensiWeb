@@ -11,6 +11,7 @@ class AbsensiController extends Controller
     public function index()
     {
         $absens = Absensi::all();
+
         return view('absensi.index', compact('absens'));
     }
     public function destroy($id)
@@ -22,15 +23,19 @@ class AbsensiController extends Controller
 
     public function rekap()
     {
-        $rekap = collect([]);
+        $rekaps = collect();
         $pegawai = Pegawai::all();
         foreach ($pegawai as $p) {
-            $rekap->push([
+            $rekaps->push([
+                'nip' => $p->nip,
                 'nama'      => $p->nama_lengkap,
                 'hadir'   => $p->hadir()->count(),
-                'sakit' => $p->sakit()->count()
+                'sakit' => $p->sakit()->count(),
+                'cuti' => $p->dataCuti($p->nip)->count(),
+                'izin' => $p->izin()->count()
             ]);
         }
-        return $rekap;
+
+        return view('rekap.index', compact('rekaps'));
     }
 }
