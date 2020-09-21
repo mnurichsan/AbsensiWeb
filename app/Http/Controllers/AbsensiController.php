@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Absensi;
+use App\Exports\PegawaiExport;
 use App\Pegawai;
-use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AbsensiController extends Controller
 {
@@ -37,5 +38,10 @@ class AbsensiController extends Controller
         }
 
         return view('rekap.index', compact('rekaps'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new PegawaiExport, 'PegawaiAbsens.xlsx');
     }
 }

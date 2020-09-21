@@ -9871,9 +9871,9 @@ a:focus {
     }
 }
 .bg-login-image {
-    background-image: url("../img/2.png");
+    background-image: url("../img/logo-login.svg");
     background-position: auto;
-    background-size: cover;
+    background-size: 490px;
 }
 .bg-register-image {
     background: url(https://source.unsplash.com/Mv9hjnEUHR4/600x800);

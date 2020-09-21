@@ -49,18 +49,18 @@
                                 <td>
                                     @if($darurat->approve == 'Belum')
                                     <div class="btn-group">
-                                        <a href="" class="btn btn-sm btn-warning mr-2">Tolak</a>
-                                        <a href="" class="btn btn-sm btn-success">Approve</a>
+                                        <a href="{{route('darurat.tolak',$darurat->id)}}" class="btn btn-sm btn-warning mr-2">Tolak</a>
+                                        <a href="{{route('darurat.approve',$darurat->id)}}" class="btn btn-sm btn-success">Approve</a>
                                     </div>
                                     @elseif($darurat->approve == 'Tolak')
                                     <div class="btn-group">
-                                        <a href="" class="btn btn-sm btn-primary mr-2">Belum</a>
-                                        <a href="" class="btn btn-sm btn-success">Approve</a>
+                                        <a href="{{route('darurat.belum',$darurat->id)}}" class="btn btn-sm btn-primary mr-2">Belum</a>
+                                        <a href="{{route('darurat.approve',$darurat->id)}}" class="btn btn-sm btn-success">Approve</a>
                                     </div>
                                     @elseif($darurat->approve == 'Approve')
                                     <div class="btn-group">
-                                        <a href="" class="btn btn-sm btn-primary mr-2">Belum</a>
-                                        <a href="" class="btn btn-sm btn-warning">Tolak</a>
+                                        <a href="{{route('darurat.belum',$darurat->id)}}" class="btn btn-sm btn-primary mr-2">Belum</a>
+                                        <a href="{{route('darurat.tolak',$darurat->id)}}" class="btn btn-sm btn-warning">Tolak</a>
                                     </div>
                                     @endif
                                 </td>

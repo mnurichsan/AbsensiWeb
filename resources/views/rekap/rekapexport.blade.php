@@ -1,0 +1,26 @@
+<table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nip</th>
+            <th>Nama</th>
+            <th>Hadir</th>
+            <th>Sakit</th>
+            <th>Izin</th>
+            <th>Cuti</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($rekaps as $rekap)
+        <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>{{$rekap['nip']}}</td>
+            <td>{{$rekap['nama']}}</td>
+            <td>{{$rekap['hadir']}}</td>
+            <td>{{$rekap['sakit']}}</td>
+            <td>{{$rekap['izin']}}</td>
+            <td>{{$rekap['cuti']}}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>

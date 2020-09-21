@@ -5,7 +5,7 @@
     <div class="col">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a href="" class="btn btn-success float-right"><i class="fas fa-file-excel"></i> Export Data</a>
+                <a href="{{route('rekap.export')}}" class="btn btn-success float-right"><i class="fas fa-file-excel"></i> Export Data</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
