@@ -20,11 +20,7 @@ class PegawaiControllerApi extends Controller
                 $result["nip"] = $logg->nip;
                 $result["nama_lengkap"] = $logg->nama_lengkap;
             }
-            return response()->json([
-                'success' => true,
-                'message' => 'Berhasil login',
-                'data' => $result
-            ], 200);
+            return response()->json($result, 200);
         } else {
             $result["success"] = "0";
             $result["message"] = "error";
