@@ -5,6 +5,7 @@
     <div class="col">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
+                <button class="btn btn-sm btn-flat btn-warning btn-refresh"><i class="fas fa-redo"></i> Refresh</button>
                 <a href="{{route('rekap.export')}}" class="btn btn-success float-right"><i class="fas fa-file-excel"></i> Export Data</a>
             </div>
             <div class="card-body">

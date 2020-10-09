@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cuti/tolak/{id}', 'CutiController@tolak')->name('cuti.tolak');
     Route::get('/rekap', 'AbsensiController@rekap')->name('absen.rekap');
     Route::get('/darurat', 'DaruratController@index')->name('darurat.index');
+    Route::delete('/darurat/{id}', 'DaruratController@destroy')->name('darurat.delete');
     Route::get('/darurat/approve/{id}', 'DaruratController@approve')->name('darurat.approve');
     Route::get('/darurat/belum/{id}', 'DaruratController@belum')->name('darurat.belum');
     Route::get('/darurat/tolak/{id}', 'DaruratController@tolak')->name('darurat.tolak');

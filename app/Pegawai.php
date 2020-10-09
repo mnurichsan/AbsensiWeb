@@ -46,4 +46,23 @@ class Pegawai extends Model
     {
         return $this->darurat()->where('informasi', 'Izin');
     }
+
+    public function reportHadir($bulan)
+    {
+        return $this->hadir()->whereMonth('tgl_absen', '=', $bulan)->get();
+    }
+    public function reportIzin($bulan)
+    {
+        return $this->izin()->whereMonth('tgl_pengajuan', '=', $bulan)->get();
+    }
+
+    public function reportSakit($bulan)
+    {
+        return $this->sakit()->whereMonth('tgl_pengajuan', '=', $bulan)->get();
+    }
+
+    public function reportCuti($nip, $bulan)
+    {
+        return $this->dataCuti($nip)->whereMonth('tgl_pengajuan', '=', $bulan)->get();
+    }
 }

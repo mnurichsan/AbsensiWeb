@@ -45,6 +45,7 @@ class PegawaiController extends Controller
             'jenis_jabatan' => 'required',
             'type' => 'required',
             'jenis_kelamin' => 'required',
+            'imei' => 'required'
         ]);
 
         $pegawai = [
@@ -56,7 +57,8 @@ class PegawaiController extends Controller
             'lokasi_kerja' => $request->lokasi_kerja,
             'jenis_jabatan' => $request->jenis_jabatan,
             'type' => $request->type,
-            'jenis_kelamin' => $request->jenis_kelamin
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'imei' => $request->imei
         ];
         Pegawai::create($pegawai);
         alert()->success('Sukses', 'Data Berhasil Di Simpan');

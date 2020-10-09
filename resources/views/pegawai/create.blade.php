@@ -50,13 +50,24 @@
                         <label>Lokasi kerja</label>
                         <select class="custom-select custom-select-md" name="lokasi_kerja">
                             <option selected>-- Pilih Lokasi Kerja -- </option>
-                            <option value="1">UNM Pettarani</option>
-                            <option value="2">UNM Bantabantaeng</option>
-                            <option value="3">UNM Tidung</option>
-                            <option value="4">UNM Parangtambung</option>
-                            <option value="5">UNM Pascasarjana</option>
-                            <option value="6">UNM Pare-pare</option>
-                            <option value="7">UNM Bone</option>
+                            <option value="1">Biro Akademik dan Kemahasiswaan</option>
+                            <option value="12">Biro Umum dan Keuangan</option>
+                            <option value="13">Biro Perencanaan dan kerjasama</option>
+                            <option value="14">LPPM</option>
+                            <option value="15">LP2MP</option>
+                            <option value="16">UPT Perpustakaan</option>
+                            <option value="17">UPT Teknologi Informasi dan Komunikasi</option>
+                            <option value="2">Fakultas Matematika dan Ilmu pengetahuan Alam</option>
+                            </option>
+                            <option value="3">Fakultas Teknik</option>
+                            <option value="4">Fakultas Ilmu Keolahragaan</option>
+                            <option value="5">Fakultas Ilmu Pendidikan</option>
+                            <option value="6">Fakultas Bahasa dan Sastra</option>
+                            <option value="7">Fakultas Ilmu Sosial</option>
+                            <option value="8">Fakultas Ekonomi</option>
+                            <option value="9">Fakultas Seni dan Desain</option>
+                            <option value="10">Fakultas Psikologi</option>
+                            <option value="11">Program Pasca Sarjana</option>
                         </select>
                         @error('lokasi_kerja')
                         <span class="invalid-feedback" role="alert">
@@ -94,6 +105,15 @@
                             <option value="P">Perempuan</option>
                         </select>
                         @error('jenis_kelamin')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Imei Handphone</label>
+                        <input type="text" name="imei" class="form-control form-control-user rounded-pill @error('imei') is-invalid @enderror" autocomplete="off">
+                        @error('imei')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

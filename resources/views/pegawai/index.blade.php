@@ -5,7 +5,8 @@
     <div class="col">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a href="{{route('pegawai.create')}}" class="btn btn-md btn-primary rounded-pill shadow-lg"><i class="fas fa-plus"></i> Tambah Pegawai</a>
+                <button class="btn btn-sm btn-flat btn-warning btn-refresh"><i class="fas fa-redo"></i> Refresh</button>
+                <a href="{{route('pegawai.create')}}" class="btn btn-md btn-primary rounded-pill shadow-lg float-right"><i class="fas fa-plus"></i> Tambah Pegawai</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

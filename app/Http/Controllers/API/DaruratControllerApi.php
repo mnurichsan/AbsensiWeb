@@ -30,6 +30,10 @@ class DaruratControllerApi extends Controller
             ], 401);
         } else {
 
+            // $file = $request->dokumentasi;
+            // $fileName = time() . $file->getClientOriginalName();
+            // $file->move('asset_backend/image/upload/dokumentasi', $fileName);
+
             $darurat = Darurat::create([
                 'nip'   => $request->nip,
                 'tgl_pengajuan' => now(),

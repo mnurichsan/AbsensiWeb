@@ -14,4 +14,9 @@ class Darurat extends Model
     {
         return $this->hasMany('App\Pegawai', 'nip', 'nip');
     }
+
+    public function getTgl_PengajuanAttribute($value)
+    {
+        return Carbon::parse($value)->format('Y-m-d');
+    }
 }

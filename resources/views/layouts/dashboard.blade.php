@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <!-- <meta http-equiv="refresh" content="0"> -->
 
     <title>Antama - Dashboard</title>
 
@@ -164,34 +165,10 @@
                 $('#modal-hapus').modal();
             });
 
-            $(".save-data").click(function(event) {
-                event.preventDefault();
-
-                let title = $("input[name=title]").val();
-                let body = $("input[name=body]").val();
-                let userId = 1;
-
-                $.ajax({
-                    url: "https://jsonplaceholder.typicode.com/posts",
-                    type: "POST",
-                    data: {
-                        title: title,
-                        body: body,
-                        userId: userId,
-                    },
-                    success: function(response) {
-                        console.log(response);
-                        Swal.fire(
-                            'Good job!',
-                            'You clicked the button!',
-                            'success'
-                        )
-                        if (response) {
-                            $('.success').text(response.success);
-                            $("#ajaxform")[0].reset();
-                        }
-                    },
-                });
+            $('.btn-refresh').click(function(e) {
+                e.preventDefault();
+                $('.preloader').fadeIn();
+                location.reload();
             });
         });
     </script>

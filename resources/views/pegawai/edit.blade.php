@@ -51,13 +51,24 @@
                         <label>Lokasi kerja</label>
                         <select class="custom-select custom-select-md" name="lokasi_kerja">
                             <option selected>-- Pilih Lokasi Kerja -- </option>
-                            <option value="1" @if($pegawai->lokasi_kerja == 1) selected @endif>UNM Pettarani</option>
-                            <option value="2" @if($pegawai->lokasi_kerja == 2) selected @endif>UNM Bantabantaeng</option>
-                            <option value="3" @if($pegawai->lokasi_kerja == 3) selected @endif>UNM Tidung</option>
-                            <option value="4" @if($pegawai->lokasi_kerja == 4) selected @endif>UNM Parangtambung</option>
-                            <option value="5" @if($pegawai->lokasi_kerja == 5) selected @endif>UNM Pascasarjana</option>
-                            <option value="6" @if($pegawai->lokasi_kerja == 6) selected @endif>UNM Pare-pare</option>
-                            <option value="7" @if($pegawai->lokasi_kerja == 7) selected @endif>UNM Bone</option>
+                            <option value="1" @if($pegawai->lokasi_kerja == 1) selected @endif >Biro Akademik dan Kemahasiswaan</option>
+                            <option value="12" @if($pegawai->lokasi_kerja == 12) selected @endif >Biro Umum dan Keuangan</option>
+                            <option value="13" @if($pegawai->lokasi_kerja == 13) selected @endif >Biro Perencanaan dan kerjasama</option>
+                            <option value="14" @if($pegawai->lokasi_kerja == 14) selected @endif >LPPM</option>
+                            <option value="15" @if($pegawai->lokasi_kerja == 15) selected @endif >LP2MP</option>
+                            <option value="16" @if($pegawai->lokasi_kerja == 16) selected @endif >UPT Perpustakaan</option>
+                            <option value="17" @if($pegawai->lokasi_kerja == 17) selected @endif >UPT Teknologi Informasi dan Komunikasi</option>
+                            <option value="2" @if($pegawai->lokasi_kerja == 2) selected @endif >Fakultas Matematika dan Ilmu pengetahuan Alam</option>
+                            </option>
+                            <option value="3" @if($pegawai->lokasi_kerja == 3) selected @endif >Fakultas Teknik</option>
+                            <option value="4" @if($pegawai->lokasi_kerja == 4) selected @endif >Fakultas Ilmu Keolahragaan</option>
+                            <option value="5" @if($pegawai->lokasi_kerja == 5) selected @endif >Fakultas Ilmu Pendidikan</option>
+                            <option value="6" @if($pegawai->lokasi_kerja == 6) selected @endif >Fakultas Bahasa dan Sastra</option>
+                            <option value="7" @if($pegawai->lokasi_kerja == 7) selected @endif >Fakultas Ilmu Sosial</option>
+                            <option value="8" @if($pegawai->lokasi_kerja == 8) selected @endif >Fakultas Ekonomi</option>
+                            <option value="9" @if($pegawai->lokasi_kerja == 9) selected @endif >Fakultas Seni dan Desain</option>
+                            <option value="10" @if($pegawai->lokasi_kerja == 10) selected @endif >Fakultas Psikologi</option>
+                            <option value="11" @if($pegawai->lokasi_kerja == 11) selected @endif >Program Pasca Sarjana</option>
                         </select>
                         @error('lokasi_kerja')
                         <span class="invalid-feedback" role="alert">
@@ -95,6 +106,15 @@
                             <option value="P" @if($pegawai->jenis_kelamin == 'P') selected @endif>Perempuan</option>
                         </select>
                         @error('jenis_kelamin')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Imei Handphone</label>
+                        <input type="text" value="{{$pegawai->imei}}" name="imei" class="form-control form-control-user rounded-pill @error('imei') is-invalid @enderror" autocomplete="off">
+                        @error('imei')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

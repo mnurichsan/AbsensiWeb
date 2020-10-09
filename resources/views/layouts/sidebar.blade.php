@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
 
         </div>
-        <div class="sidebar-brand-text mx-3">Antama</div>
+        <div class="sidebar-brand-text mx-3"><img src="{{asset('asset_backend/img/antama1.png')}}" class="img-fluid"></div>
     </a>
 
     <!-- Divider -->

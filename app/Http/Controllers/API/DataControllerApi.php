@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Absensi;
 use App\Cuti;
 use App\Darurat;
 use App\Http\Controllers\Controller;
@@ -16,38 +17,57 @@ class DataControllerApi extends Controller
         $pegawai = Pegawai::where('nip', $nip)->get();
         foreach ($pegawai as $p) {
             $rekaps->push([
-                'nip' => $p->nip,
-                'nama'      => $p->nama_lengkap,
+                'nama'   => $p->nama_lengkap,
+                'divisi' => $p->divisi,
                 'hadir'   => $p->hadir()->count(),
                 'sakit' => $p->sakit()->count(),
                 'izin' => $p->izin()->count(),
                 'cuti' => $p->cuti()->count()
             ]);
         }
-        return response()->json([
-            'success' => true,
-            'message' => 'Data Account!',
-            'data' => $rekaps
-        ], 200);
+        return response()->json($rekaps, 200);
     }
 
     public function accountCuti($nip)
     {
-        $accountCuti = Cuti::select('tgl_pengajuan', 'informasi', 'approve')->where('nip', $nip)->get();
-        return response()->json([
-            'success' => true,
-            'message' => 'Data Cuti!',
-            'data' => $accountCuti
-        ], 200);
+        $accountCuti = Cuti::where('nip', $nip)->get();
+        $data = collect();
+        foreach ($accountCuti as $p) {
+            $data->push([
+                'tgl_pengajuan'   => $p->tgl_pengajuan->format('d-m-Y'),
+                'informasi' => $p->informasi,
+                'approve' => $p->approve
+            ]);
+        }
+        return response()->json($data, 200);
     }
 
     public function accountDarurat($nip)
     {
-        $accountDarurat = Darurat::select('tgl_pengajuan', 'informasi', 'approve')->where('nip', $nip)->get();
-        return response()->json([
-            'success' => true,
-            'message' => 'Data Darurat!',
-            'data' => $accountDarurat
-        ], 200);
+        $accountDarurat = Darurat::where('nip', $nip)->get();
+        $data = collect();
+        foreach ($accountDarurat as $p) {
+            $data->push([
+                'tgl_pengajuan'   => $p->tgl_pengajuan->format('d-m-Y'),
+                'informasi' => $p->informasi,
+                'approve' => $p->approve
+            ]);
+        }
+        return response()->json($data, 200);
+    }
+
+    public function dataReport($nip, $bulan)
+    {
+        $pegawai = Pegawai::where('nip', $nip)->get();
+        $data = collect();
+        foreach ($pegawai as $p) {
+            $data->push([
+                'hadir'   => $p->reportHadir($bulan)->count(),
+                'izin' => $p->reportIzin($bulan)->count(),
+                'sakit' => $p->reportSakit($bulan)->count(),
+                'cuti' => $p->reportCuti($nip, $bulan)->count()
+            ]);
+        }
+        return response()->json($data, 200);
     }
 }

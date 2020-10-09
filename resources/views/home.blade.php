@@ -77,7 +77,11 @@
                     </div>
                     @endif
 
-                    Selamat Datang {{Auth::user()->name}}
+                    <h4>Selamat Datang {{Auth::user()->name}} !</h4>
+                    <div class="text-center">
+                        <img src="{{asset('asset_backend/img/admin.svg')}}" class="img-fluid" width="500px" height="400px">
+                    </div>
+
                 </div>
             </div>
         </div>

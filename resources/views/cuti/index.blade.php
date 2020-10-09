@@ -5,6 +5,7 @@
     <div class="col">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
+                <button class="btn btn-sm btn-flat btn-warning btn-refresh"><i class="fas fa-redo"></i> Refresh</button>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -50,17 +51,20 @@
                                     @if($cuti->approve == 'Belum')
                                     <div class="btn-group">
                                         <a href="{{route('cuti.tolak',$cuti->id)}}" class="btn btn-sm btn-warning mr-2">Tolak</a>
-                                        <a href="{{route('cuti.approve',$cuti->id)}}" class="btn btn-sm btn-success">Approve</a>
+                                        <a href="{{route('cuti.approve',$cuti->id)}}" class="btn btn-sm btn-success mr-2">Approve</a>
+                                        <a href="{{route('cuti.delete',$cuti->id)}}" class="btn btn-sm btn-danger btn-hapus"><i class="fas fa-trash"></i></a>
                                     </div>
                                     @elseif($cuti->approve == 'Tolak')
                                     <div class="btn-group">
                                         <a href="{{route('cuti.belum',$cuti->id)}}" class="btn btn-sm btn-primary mr-2">Belum</a>
-                                        <a href="{{route('cuti.approve',$cuti->id)}}" class="btn btn-sm btn-success">Approve</a>
+                                        <a href="{{route('cuti.approve',$cuti->id)}}" class="btn btn-sm btn-success mr-2">Approve</a>
+                                        <a href="{{route('cuti.delete',$cuti->id)}}" class="btn btn-sm btn-danger btn-hapus"><i class="fas fa-trash"></i></a>
                                     </div>
                                     @elseif($cuti->approve == 'Approve')
                                     <div class="btn-group">
                                         <a href="{{route('cuti.belum',$cuti->id)}}" class="btn btn-sm btn-primary mr-2">Belum</a>
-                                        <a href="{{route('cuti.tolak',$cuti->id)}}" class="btn btn-sm btn-warning">Tolak</a>
+                                        <a href="{{route('cuti.tolak',$cuti->id)}}" class="btn btn-sm btn-warning mr-2">Tolak</a>
+                                        <a href="{{route('cuti.delete',$cuti->id)}}" class="btn btn-sm btn-danger btn-hapus"><i class="fas fa-trash"></i></a>
                                     </div>
                                     @endif
                                 </td>

@@ -14,6 +14,13 @@ class DaruratController extends Controller
         return view('darurat.index', compact('darurats'));
     }
 
+    public function destroy($id)
+    {
+        Darurat::findOrFail($id)->delete();
+        alert()->success('Sukses', 'Data Berhasil Di Hapus');
+        return redirect()->route('darurat.index');
+    }
+
     public function approve($id)
     {
         $approve = [
