@@ -12,7 +12,7 @@ class PegawaiControllerApi extends Controller
 {
     public function login(Request $request)
     {
-        $logins = Pegawai::where('nip', $request->nip)->where('password', $request->password)->orWhere('imei', $request->imei)->get();
+        $logins = Pegawai::where('nip', $request->nip)->where('password', $request->password)->where('imei', $request->imei)->orWhere('imei2', $request->imei2)->get();
 
         if (count($logins) > 0) {
             foreach ($logins as $logg) {
@@ -24,6 +24,7 @@ class PegawaiControllerApi extends Controller
             }
             return response()->json($result, 200);
         } else {
+            $result["nip"] = "kosong";
             $result["message"] = "error";
             echo json_encode($result);
         }

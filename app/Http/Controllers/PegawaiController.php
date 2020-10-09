@@ -45,7 +45,8 @@ class PegawaiController extends Controller
             'jenis_jabatan' => 'required',
             'type' => 'required',
             'jenis_kelamin' => 'required',
-            'imei' => 'required'
+            'imei' => 'required',
+            'imei2' => 'required'
         ]);
 
         $pegawai = [
@@ -58,7 +59,8 @@ class PegawaiController extends Controller
             'jenis_jabatan' => $request->jenis_jabatan,
             'type' => $request->type,
             'jenis_kelamin' => $request->jenis_kelamin,
-            'imei' => $request->imei
+            'imei' => $request->imei,
+            'imei2' => $request->imei2
         ];
         Pegawai::create($pegawai);
         alert()->success('Sukses', 'Data Berhasil Di Simpan');
@@ -106,6 +108,8 @@ class PegawaiController extends Controller
             'jenis_jabatan' => 'required',
             'type' => 'required',
             'jenis_kelamin' => 'required',
+            'imei' => 'required',
+            'imei2' => 'required'
         ]);
 
         $pegawai = [
@@ -117,7 +121,9 @@ class PegawaiController extends Controller
             'lokasi_kerja' => $request->lokasi_kerja,
             'jenis_jabatan' => $request->jenis_jabatan,
             'type' => $request->type,
-            'jenis_kelamin' => $request->jenis_kelamin
+            'jenis_kelamin' => $request->jenis_kelamin,
+            'imei' => $request->imei,
+            'imei2' => $request->imei2
         ];
         Pegawai::findOrFail($id)->update($pegawai);
         alert()->success('Sukses', 'Data Berhasil Di Update');

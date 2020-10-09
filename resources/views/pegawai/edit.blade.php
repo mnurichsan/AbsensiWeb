@@ -120,6 +120,15 @@
                         </span>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label>Imei Handphone 2</label>
+                        <input type="text" value="{{$pegawai->imei2}}" name="imei2" class="form-control form-control-user rounded-pill @error('imei2') is-invalid @enderror" autocomplete="off">
+                        @error('imei2')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
                     <button type="submit" class="btn btn-primary float-right">Update</button>
                     <button type="reset" class="btn btn-danger float-right mr-1">Reset</button>
                 </form>
