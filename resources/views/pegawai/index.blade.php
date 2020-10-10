@@ -5,7 +5,12 @@
     <div class="col">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <button class="btn btn-sm btn-flat btn-warning btn-refresh"><i class="fas fa-redo"></i> Refresh</button>
+                <button class="btn btn-sm btn-flat btn-warning btn-refresh mb-2"><i class="fas fa-redo"></i> Refresh</button>
+                <form action="{{ route('pegawai.import') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" class="btn btn-success" name="file" class="form-control">
+                    <button class="btn btn-success"><i class="fas fa-file-excel"></i> Import Data</button>
+                </form>
                 <a href="{{route('pegawai.create')}}" class="btn btn-md btn-primary rounded-pill shadow-lg float-right"><i class="fas fa-plus"></i> Tambah Pegawai</a>
             </div>
             <div class="card-body">

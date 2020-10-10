@@ -20,6 +20,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('/pegawai', 'PegawaiController');
+    Route::post('/pegawai/import', 'PegawaiController@import')->name('pegawai.import');
     Route::get('/absen', 'AbsensiController@index')->name('absen.index');
     Route::delete('/absen/{id}', 'AbsensiController@destroy')->name('absen.delete');
     Route::get('/cuti', 'CutiController@index')->name('cuti.index');

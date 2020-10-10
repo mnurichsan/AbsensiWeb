@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\PegawaiImport;
 use App\Pegawai;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PegawaiController extends Controller
 {
@@ -140,6 +142,13 @@ class PegawaiController extends Controller
     {
         Pegawai::findOrFail($id)->delete();
         alert()->success('Sukses', 'Data Berhasil Di Hapus');
+        return redirect()->route('pegawai.index');
+    }
+
+    public function import()
+    {
+        Excel::import(new PegawaiImport, request()->file('file'));
+        alert()->success('Sukses', 'Data Berhasil Di tambah');
         return redirect()->route('pegawai.index');
     }
 }

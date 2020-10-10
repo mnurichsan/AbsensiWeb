@@ -89,8 +89,8 @@
                         <label>Status Jabatan</label>
                         <select class="custom-select custom-select-md" name="type">
                             <option selected>-- Pilih Status Jabatan -- </option>
-                            <option value="Atasan" @if($pegawai->type == "Atasan") selected @endif>Atasan</option>
-                            <option value="Pegawai" @if($pegawai->type == "Pegawai") selected @endif>Pegawai</option>
+                            <option value="Atasan" @if($pegawai->type == "Atasan" || $pegawai->type == "atasan") selected @endif>Atasan</option>
+                            <option value="Pegawai" @if($pegawai->type == "Pegawai" || $pegawai->type == "pegawai") selected @endif>Pegawai</option>
                         </select>
                         @error('status_jabatan')
                         <span class="invalid-feedback" role="alert">
@@ -101,7 +101,7 @@
                     <div class="form-group">
                         <label>Jenis Kelamin</label>
                         <select class="custom-select custom-select-md" name="jenis_kelamin">
-                            <option selected>-- Pilih Status Jabatan -- </option>
+                            <option selected>-- Pilih Jenis Kelamin -- </option>
                             <option value="L" @if($pegawai->jenis_kelamin == 'L') selected @endif>Laki-laki</option>
                             <option value="P" @if($pegawai->jenis_kelamin == 'P') selected @endif>Perempuan</option>
                         </select>
